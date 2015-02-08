@@ -1,0 +1,8 @@
+name 'icinga2web'
+version '0.0.1'
+author 'Adrian Webb <adrian.webb@coraltech.net>'
+license 'Apache License v2'
+summary 'Icinga2 Web interface module'
+description 'Install, configure and manage the Icinga web interface (Ubuntu)'
+project_page 'https://github.com/coralnexus/puppet-icinga2web'
+dependency 'icinga/puppet-icinga2'
