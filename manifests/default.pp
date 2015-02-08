@@ -3,7 +3,7 @@ class icinga2web::default {
 
   case $::operatingsystem {
     debian, ubuntu: {
-      $user      = 'root'
+      $git_user  = 'root'
       $repo_path = '/usr/share/icingaweb2'
     }
     default: {

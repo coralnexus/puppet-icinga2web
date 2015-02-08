@@ -47,7 +47,7 @@ class icinga2web inherits icinga2web::params {
     user              => $icinga2web::params::git_user,
     owner             => $icinga2web::params::git_owner,
     group             => $icinga2web::params::git_group,
-    home_dir          => undef,
+    home_dir          => '',
     source            => $icinga2web::params::source,
     revision          => $icinga2web::params::revision,
     base              => false,
