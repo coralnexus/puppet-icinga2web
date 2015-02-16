@@ -1,11 +1,11 @@
 
-class icinga2web::params inherits icinga2web::default {
+class icingaweb2::params inherits icingaweb2::default {
 
   include git::params
 
   #---
 
-  $base_name = 'icinga2web'
+  $base_name = 'icingaweb2'
 
   #-----------------------------------------------------------------------------
 

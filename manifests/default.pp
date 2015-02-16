@@ -1,5 +1,5 @@
 
-class icinga2web::default {
+class icingaweb2::default {
 
   case $::operatingsystem {
     debian, ubuntu: {
@@ -7,7 +7,7 @@ class icinga2web::default {
       $repo_path = '/usr/share/icingaweb2'
     }
     default: {
-      fail("The icinga2web module is not currently supported on ${::operatingsystem}")
+      fail("The icingaweb2 module is not currently supported on ${::operatingsystem}")
     }
   }
 }

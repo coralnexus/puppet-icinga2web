@@ -1,1 +1,1 @@
-include icinga2web
+include icingaweb2

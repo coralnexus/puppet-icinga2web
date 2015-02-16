@@ -1,4 +1,4 @@
-# Class: icinga2web
+# Class: icingaweb2
 #
 #   This module configures the Icinga2 web environment.
 #
@@ -20,19 +20,19 @@
 #
 # Sample Usage:
 #
-#  include icinga2web
+#  include icingaweb2
 #
-class icinga2web inherits icinga2web::params {
+class icingaweb2 inherits icingaweb2::params {
 
-  $base_name = $icinga2web::params::base_name
+  $base_name = $icingaweb2::params::base_name
 
   #---
 
-  if ! defined(Group[$icinga2web::params::group_name]) {
+  if ! defined(Group[$icingaweb2::params::group_name]) {
     corl::group { $base_name:
       resources => {
         primary => {
-          name   => $icinga2web::params::group_name,
+          name   => $icingaweb2::params::group_name,
           ensure => 'present',
           system => true
         }
@@ -43,13 +43,13 @@ class icinga2web inherits icinga2web::params {
   #---
 
   git::repo { $base_name:
-    path              => $icinga2web::params::repo_path,
-    user              => $icinga2web::params::git_user,
-    owner             => $icinga2web::params::git_owner,
-    group             => $icinga2web::params::git_group,
+    path              => $icingaweb2::params::repo_path,
+    user              => $icingaweb2::params::git_user,
+    owner             => $icingaweb2::params::git_owner,
+    group             => $icingaweb2::params::git_group,
     home_dir          => '',
-    source            => $icinga2web::params::source,
-    revision          => $icinga2web::params::revision,
+    source            => $icingaweb2::params::source,
+    revision          => $icingaweb2::params::revision,
     base              => false,
     monitor_file_mode => false
   }
