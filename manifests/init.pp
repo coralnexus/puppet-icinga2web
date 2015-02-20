@@ -106,9 +106,9 @@ class icingaweb2 inherits icingaweb2::params {
         path    => "${icingaweb2::params::config_dir}/config.ini",
         content => $icingaweb2::params::config_config
       },
-      permissions => {
-        path    => "${icingaweb2::params::config_dir}/permissions.ini",
-        content => $icingaweb2::params::perm_config
+      roles => {
+        path    => "${icingaweb2::params::config_dir}/roles.ini",
+        content => $icingaweb2::params::role_config
       },
       resources => {
         path    => "${icingaweb2::params::config_dir}/resources.ini",
