@@ -9,6 +9,8 @@ class icingaweb2::default {
       $config_dir   = '/etc/icingaweb2'
       $config_owner = 'root'
       $config_group = 'root'
+
+      $monitoring_instance_path = '/var/run/icinga2/cmd/icinga2.cmd'
     }
     default: {
       fail("The icingaweb2 module is not currently supported on ${::operatingsystem}")
