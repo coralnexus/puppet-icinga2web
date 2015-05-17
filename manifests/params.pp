@@ -68,6 +68,10 @@ class icingaweb2::params inherits icingaweb2::default {
       dbname   => module_param('resource_ido_db_name', 'icinga2'),
       username => module_param('resource_ido_db_user', 'icinga2'),
       password => module_param('resource_ido_db_password', '12345')
+    },
+    livestatus => {
+      type    => module_param('monitoring_livestatus_type', 'livestatus'),
+      socket  => module_param('monitoring_livestatus_socket')
     }
   })
 
