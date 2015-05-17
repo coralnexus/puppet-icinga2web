@@ -9,6 +9,7 @@ class icingaweb2::params inherits icingaweb2::default {
 
   #-----------------------------------------------------------------------------
 
+  $user_name  = module_param('user_name', 'icingaweb2')
   $group_name = module_param('group_name', 'icingaweb2')
 
   $config_dir   = module_param('config_dir')

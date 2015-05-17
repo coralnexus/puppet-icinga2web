@@ -28,6 +28,18 @@ class icingaweb2 inherits icingaweb2::params {
 
   #---
 
+  if ! defined(User[$icingaweb2::params::user_name]) {
+    corl::user { $base_name:
+      resources => {
+        primary => {
+          name   => $icingaweb2::params::user_name,
+          ensure => 'present',
+          system => true,
+          home   => $icingaweb2::params::repo_dir
+        }
+      }
+    }
+  }
   if ! defined(Group[$icingaweb2::params::group_name]) {
     corl::group { $base_name:
       resources => {
@@ -44,14 +56,29 @@ class icingaweb2 inherits icingaweb2::params {
 
   git::repo { $base_name:
     path              => $icingaweb2::params::repo_dir,
-    user              => $icingaweb2::params::git_user,
-    owner             => $icingaweb2::params::git_owner,
+    user              => 'root',
+    owner             => $icingaweb2::params::git_user,
     group             => $icingaweb2::params::git_group,
     home_dir          => '',
     source            => $icingaweb2::params::source,
     revision          => $icingaweb2::params::revision,
     base              => false,
     monitor_file_mode => false
+  }
+
+  corl::file { "${base_name}_repo_overrides":
+    resources => {
+      ifont_embedded => {
+        path    => "${icingaweb2::params::repo_dir}/application/fonts/fontello-ifont/css/ifont-embedded.css",
+        content => ''
+      }
+    },
+    defaults => {
+      owner   => $icingaweb2::params::git_user,
+      group   => $icingaweb2::params::git_group,
+      mode    => 0644,
+      require => Git::Repo[$base_name]
+    }
   }
 
   #---
